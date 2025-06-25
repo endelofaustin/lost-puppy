@@ -1,5 +1,5 @@
 #define CATCH_CONFIG_MAIN
-#include <catch2/catch.hpp>
+#include <catch2/catch_all.hpp>  // v3 uses catch_all.hpp instead of catch.hpp
 
 void say_hi();
 

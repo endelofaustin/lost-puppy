@@ -13,14 +13,14 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v4
 
-    - name: Install vcpkg and dependencies
+    - name: Run vcpkg with manifest mode
       uses: lukka/run-vcpkg@v11
       with:
         vcpkgJsonGlob: '**/vcpkg.json'
         runVcpkgInstall: true
 
     - name: Configure CMake
-      run: cmake -S . -B build -DCMAKE_TOOLCHAIN_FILE="${{ env.VCPKG_ROOT }}/scripts/buildsystems/vcpkg.cmake"
+      run: cmake -S . -B build -DCMAKE_TOOLCHAIN_FILE=${{ env.VCPKG_ROOT }}/scripts/buildsystems/vcpkg.cmake
 
     - name: Build
       run: cmake --build build
